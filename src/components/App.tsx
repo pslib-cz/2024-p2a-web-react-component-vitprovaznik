@@ -10,24 +10,13 @@ const makeColor = (p: number): string => {
 //nejmensi = cervena barva, stredni = zluta, nejvetsi = zelena
 
 function App() {
-  const [value, setValue] = useState(0);
-  const [max, setMax] = useState(100);
-
   return (
     <>
-      <form>
-        <input
-          type="number"
-          value={value}
-          onChange={(e) => setValue(Number(e.target.value))}
-        />
-        <input
-          type="number"
-          value={max}
-          onChange={(e) => setMax(Number(e.target.value))}
-        />
-      </form>
-      <PercentView value={value} max={max} makeColor={makeColor} />
+      <PercentView value={20} max={100} makeColor={makeColor} />
+
+      <PercentView value={50} max={100} makeColor={makeColor} />
+
+      <PercentView value={60} max={100} makeColor={makeColor} />
     </>
   );
 }
