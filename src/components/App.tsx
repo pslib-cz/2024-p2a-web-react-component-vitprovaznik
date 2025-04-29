@@ -1,6 +1,5 @@
 import React from "react";
 import PercentView from "./PercentView";
-import { useState } from "react";
 import "../App.css";
 
 const makeColor = (p: number): string => {
