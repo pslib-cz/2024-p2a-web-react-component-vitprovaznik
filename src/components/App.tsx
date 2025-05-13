@@ -1,5 +1,6 @@
 import React from "react";
 import PercentView from "./PercentView";
+import { useState } from "react";
 import "../App.css";
 
 const makeColor = (p: number): string => {
@@ -8,14 +9,23 @@ const makeColor = (p: number): string => {
 };
 //nejmensi = cervena barva, stredni = zluta, nejvetsi = zelena
 
+let current: number = 50;
+
 function App() {
+  const initialValue: number = 50;
+  const [rangeValue, setRangeValue] = useState(100)
   return (
     <>
-      <PercentView value={20} max={100} makeColor={makeColor} />
-
-      <PercentView value={50} max={100} makeColor={makeColor} />
-
-      <PercentView value={60} max={100} makeColor={makeColor} />
+      <div>
+        <input
+          type="range"
+          min={0}
+          max={100}
+          defaultValue={initialValue}
+          onChange={(e) => setRangeValue(parseInt(e.target.value))}
+        />
+      </div>
+      <PercentView value={rangeValue} max={100} makeColor={makeColor} />
     </>
   );
 }
